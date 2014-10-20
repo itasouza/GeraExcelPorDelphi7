@@ -1,0 +1,49 @@
+object DM: TDM
+  OldCreateOrder = False
+  Left = 720
+  Top = 388
+  Height = 180
+  Width = 189
+  object qryConsulta: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select top(100) ID_ARQUIVO,'#9'NOME_ARQUIVO,'#9'CD_SERVICO,'#9'NR_OS,'#9'SER' +
+        'VICO, DATA_REC from TBARQUIVO')
+    Left = 58
+    Top = 74
+    object qryConsultaID_ARQUIVO: TAutoIncField
+      FieldName = 'ID_ARQUIVO'
+      ReadOnly = True
+    end
+    object qryConsultaNOME_ARQUIVO: TStringField
+      FieldName = 'NOME_ARQUIVO'
+      Size = 50
+    end
+    object qryConsultaCD_SERVICO: TIntegerField
+      FieldName = 'CD_SERVICO'
+    end
+    object qryConsultaNR_OS: TIntegerField
+      FieldName = 'NR_OS'
+    end
+    object qryConsultaSERVICO: TStringField
+      FieldName = 'SERVICO'
+      Size = 50
+    end
+    object qryConsultaDATA_REC: TDateTimeField
+      FieldName = 'DATA_REC'
+    end
+  end
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=osame;Persist Security Info=True;Us' +
+      'er ID=os;Initial Catalog=ICATU_BKP;Data Source=probarsrvdsv01'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 58
+    Top = 18
+  end
+end
